@@ -34,7 +34,7 @@ import (
 
 var (
 	stormServer = "localhost"
-	stormPort   = "8080"
+	stormPort   = "80"
 	stormApi    = "/api/v1"
 )
 
@@ -117,7 +117,7 @@ func getTopInfo(endpoint string) {
 
 	for bolt := range info {
 		for k, v := range info[bolt] {
-			fmt.Printf("PUTVAL %s/storm/gauge-%s-%s N:%s\n", hostname, bolt, k, v)
+			fmt.Printf("PUTVAL %s/storm/gauge-%s.%s.%s N:%s\n", hostname, endpoint, bolt, k, v)
 		}
 	}
 }
